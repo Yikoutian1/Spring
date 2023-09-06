@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 1. set方法注入-->
+    <bean id="book" class="com.hang.spring.ioc.Book">
+        <property name="author" value="作者 通过set方法注入"> </property>
+        <property name="bname" value="图书名 通过set方法注入"> </property>
+    </bean>
+    <!-- 2. 构造器注入   -->
+    <bean id="bookCon" class="com.hang.spring.ioc.Book">
+        <constructor-arg name="author" value="作者 通过构造器注入"> </constructor-arg>
+        <constructor-arg name="bname" value="图书名 通过构造器注入"> </constructor-arg>
+    </bean>
+</beans>
