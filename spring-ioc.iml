@@ -15,6 +15,7 @@
           <file>file://$MODULE_DIR$/spring-ioc/src/main/resources/bean-scope.xml</file>
           <file>file://$MODULE_DIR$/spring-ioc/src/main/resources/bean-life.xml</file>
           <file>file://$MODULE_DIR$/spring-ioc/src/main/resources/bean-factorybean.xml</file>
+          <file>file://$MODULE_DIR$/spring-ioc/src/main/resources/bean-auto.xml</file>
         </fileset>
       </configuration>
     </facet>
