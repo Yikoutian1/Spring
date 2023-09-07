@@ -42,4 +42,18 @@ public class testEmp {
         // 普通属性注入正在工作,年龄为:18
         // 部门名称：内部bean注入 部门
     }
+    /**
+     * 级联赋值
+     */
+    @Test
+    public void testEmp3(){
+        ApplicationContext context =
+                new ClassPathXmlApplicationContext("inject-list.xml");
+        // 员工对象
+        Employee employee = context.getBean("employee3", Employee.class);
+        employee.work();
+        // TODO 成功注入: console如下
+        // 普通属性注入正在工作,年龄为:18
+        // 部门名称：这是级联赋值后的值
+    }
 }
