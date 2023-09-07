@@ -7,7 +7,14 @@
     <bean id="userController" class="com.hang.spring.ioc.auto.controller.UserController"
           autowire="byName"
     >
-
+        <!--
+            byName:通过名字自动装配(保证名字一致)
+                        set方法的参数名(例如:UserService userService)
+                        byName: userService
+            byType:通过属性自动装配
+                        根据对象的属性类型(例如:UserDao userDao)
+                        byType: UserDao
+        -->
     </bean>
     <bean id="userService" class="com.hang.spring.ioc.auto.service.impl.UserServiceImpl"
           autowire="byName">
