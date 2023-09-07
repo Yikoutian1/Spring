@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+    ##########  一  ########
+    第一种方式: 引入外部bean
+        1. 创建两个类的对象: dept 和 emp
+        2. 在emp的bean标签里面,使用property引入dept的bean
+
+        解释:外部bean 写两个标签 两个对象
+    -->
+    <bean name="dept" class="com.hang.spring.ioc.injection.Dept">
+        <property name="dName" value="引入外部bean 部门"></property>
+    </bean>
+    <bean name="employee" class="com.hang.spring.ioc.injection.Employee">
+        <!--
+        注入对象属性(name要和bean的名一致)
+            private Dept dept
+            ref: 引入外部bean
+            ###不能用value###
+        -->
+        <property name="dept" ref="dept"></property>
+        <!--    普通属性注入    -->
+        <property name="eName" value="普通属性注入"></property>
+        <property name="age" value="18"></property>
+    </bean>
+    <!--
+    ##########  二  ########
+    第二种方式: 内部bean注入
+
+    解释: 内部bean 在标签内部写另外一个bean注入
+    -->
+    <bean name="employee2" class="com.hang.spring.ioc.injection.Employee">
+        <!--    普通属性注入    -->
+        <property name="eName" value="普通属性注入"></property>
+        <property name="age" value="18"></property>
+        <!--    内部bean   -->
+        <property name="dept">
+            <bean name="dept2" class="com.hang.spring.ioc.injection.Dept">
+                <property name="dName" value="内部bean注入 部门"></property>
+            </bean>
+        </property>
+    </bean>
+
+    <!--
+    ##########  三  ########
+    第三种方式: 级联赋值
+
+    解释: 对象注入后 通过对象赋值
+    -->
+    <bean name="dept3" class="com.hang.spring.ioc.injection.Dept">
+        <property name="dName" value="级联赋值 部门"></property>
+    </bean>
+    <bean name="employee3" class="com.hang.spring.ioc.injection.Employee">
+        <!--    普通属性注入    -->
+        <property name="eName" value="普通属性注入"></property>
+        <property name="age" value="18"></property>
+        <!--    先对象注入    -->
+        <property name="dept" ref="dept3"></property>
+        <!--     通过对象赋值   -->
+        <property name="dept.dName" value="这是级联赋值后的值"></property>
+    </bean>
+</beans>
+

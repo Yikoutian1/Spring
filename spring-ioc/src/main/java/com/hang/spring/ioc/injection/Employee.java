@@ -1,5 +1,8 @@
 package com.hang.spring.ioc.injection;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 /**
  * @ClassName Employee
  * @Description 员工类
@@ -15,10 +18,21 @@ public class Employee {
     private Dept dept;
     private String eName;
     private Integer age;
+    // 爱好数组 (注入)
+    private String[] loves;
+
+    public String[] getLoves() {
+        return loves;
+    }
+
+    public void setLoves(String[] loves) {
+        this.loves = loves;
+    }
 
     public void work() {
         System.out.println(eName + "正在工作" + ",年龄为:" + age);
         dept.info();
+        System.out.println(Arrays.toString(loves));
     }
 
 

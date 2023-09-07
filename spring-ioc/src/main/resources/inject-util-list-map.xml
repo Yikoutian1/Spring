@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--
+        1.如果要使用util标签 需要在上面的命名空间像上面这样写入
+        2.可以直接<util:map>,然后idea会提示添加
+        3.P命名空间
+        xmlns:p="http://www.springframework.org/schema/p"
+    -->
+    <!--P命名空间注入-->
+    <bean id="studentP" class="com.hang.spring.ioc.map.Student"
+          p:sid="100" p:sName="pName" p:list-ref="lessonList" p:map-ref="teacherMap">
+    </bean>
+    <!--
+        1.注入三个对象
+        2.注入普通属性
+        3.使用util:类型定义
+        4.在学生bean引入util类型定义bean,完成list.map类型属性注入
+     -->
+    <bean id="student" class="com.hang.spring.ioc.map.Student">
+        <property name="sName" value="普通注入属性(学生)"></property>
+        <property name="sid" value="1"></property>
+        <!--    注入list和map类型的属性    -->
+        <property name="list" ref="lessonList"></property>
+        <property name="map" ref="teacherMap"></property>
+    </bean>
+    <util:map id="teacherMap">
+        <entry key="1">
+            <ref bean="teacher1"></ref>
+        </entry>
+        <entry key="2">
+            <ref bean="teacher2"></ref>
+        </entry>
+    </util:map>
+    <util:list id="lessonList">
+        <ref bean="lesson1"></ref>
+        <ref bean="lesson2"></ref>
+    </util:list>
+
+    <!--  老师  -->
+    <bean id="teacher1" class="com.hang.spring.ioc.map.Teacher">
+        <property name="tname" value="普通注入属性(老师1)"></property>
+        <property name="tid" value="1"></property>
+    </bean>
+    <bean id="teacher2" class="com.hang.spring.ioc.map.Teacher">
+        <property name="tname" value="普通注入属性(老师2)"></property>
+        <property name="tid" value="2"></property>
+    </bean>
+    <!--  课程  -->
+    <bean id="lesson1" class="com.hang.spring.ioc.map.Lesson">
+        <property name="lessonName" value="spring"></property>
+    </bean>
+    <bean id="lesson2" class="com.hang.spring.ioc.map.Lesson">
+        <property name="lessonName" value="spring"></property>
+    </bean>
+</beans>
+

@@ -18,9 +18,10 @@ public class Dept {
 
     public void info() {
         System.out.println("部门名称：" + dName);
+        for (Employee e : employee) {
+            System.out.println("Name:" + e.geteName() + ",Age:" + e.getAge());
+        }
     }
-
-
 
 
     public String getdName() {
