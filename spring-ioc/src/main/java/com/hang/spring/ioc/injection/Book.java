@@ -1,4 +1,4 @@
-package com.hang.spring.ioc;
+package com.hang.spring.ioc.injection;
 
 /**
  * @ClassName Book
@@ -11,6 +11,7 @@ package com.hang.spring.ioc;
 public class Book {
     private String bname;
     private String author;
+
 
     public Book() {
     }

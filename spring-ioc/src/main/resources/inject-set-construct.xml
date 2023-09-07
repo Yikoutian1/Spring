@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 1. set方法注入-->
+    <bean id="book" class="com.hang.spring.ioc.injection.Book">
+        <property name="author" value="作者 通过set方法注入"> </property>
+        <property name="bname" value="图书名 通过set方法注入"> </property>
+<!--        1. 空值处理-->
+<!--        <property name="others">-->
+<!--            <null/>-->
+<!--        </property>-->
+<!--        2. 特殊符号处理(大于小于号)-->
+<!--        <property name="others" value="&lt;&gt;"> </property>-->
+<!--        3. CDATA节-->
+<!--        <property name="expression">-->
+<!--            &lt;!&ndash; 解决方案二：使用CDATA节 &ndash;&gt;-->
+<!--            &lt;!&ndash; CDATA中的C代表Character，是文本、字符的含义，CDATA就表示纯文本数据 &ndash;&gt;-->
+<!--            &lt;!&ndash; XML解析器看到CDATA节就知道这里是纯文本，就不会当作XML标签或属性来解析 &ndash;&gt;-->
+<!--            &lt;!&ndash; 所以CDATA节中写什么符号都随意 &ndash;&gt;-->
+<!--            <value><![CDATA[a < b]]></value>-->
+<!--        </property>-->
+    </bean>
+    <!-- 2. 构造器注入   -->
+    <bean id="bookCon" class="com.hang.spring.ioc.injection.Book">
+        <constructor-arg name="author" value="作者 通过构造器注入"> </constructor-arg>
+        <constructor-arg name="bname" value="图书名 通过构造器注入"> </constructor-arg>
+    </bean>
+</beans>

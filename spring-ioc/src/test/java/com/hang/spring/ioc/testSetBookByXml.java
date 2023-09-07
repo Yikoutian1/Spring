@@ -1,5 +1,6 @@
 package com.hang.spring.ioc;
 
+import com.hang.spring.ioc.injection.Book;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -19,7 +20,7 @@ public class testSetBookByXml {
     @Test
     public void testSetter(){
         ApplicationContext context =
-                new ClassPathXmlApplicationContext("bean-set-construct.xml");
+                new ClassPathXmlApplicationContext("inject-set-construct.xml");
         Book bean = context.getBean("book",Book.class);
         System.out.println("bean = " + bean);
         System.out.println("====通过Set已经注入成功===");
@@ -30,7 +31,7 @@ public class testSetBookByXml {
     @Test
     public void testConstruct(){
         ApplicationContext context =
-                new ClassPathXmlApplicationContext("bean-set-construct.xml");
+                new ClassPathXmlApplicationContext("inject-set-construct.xml");
         // TODO: 此时一个实例有多个映射, 我们通过类和id映射,确保唯一
         Book bean = context.getBean("bookCon",Book.class);
         System.out.println("bean = " + bean);
