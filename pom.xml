@@ -12,6 +12,7 @@
         <module>spring-ioc</module>
         <module>spring-ioc-annotation</module>
         <module>spring-reflect</module>
+        <module>spring-my-ioc</module>
     </modules>
 
     <properties>

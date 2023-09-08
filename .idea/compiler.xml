@@ -6,9 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="spring-ioc-annotation" />
         <module name="spring-ioc" />
         <module name="spring-reflect" />
-        <module name="spring-ioc-annotation" />
+        <module name="spring-my-ioc" />
       </profile>
     </annotationProcessing>
   </component>
