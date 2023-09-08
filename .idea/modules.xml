@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/spring-ioc.iml" filepath="$PROJECT_DIR$/spring-ioc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-ioc-annotation.iml" filepath="$PROJECT_DIR$/spring-ioc-annotation.iml" />
     </modules>
   </component>
 </project>
