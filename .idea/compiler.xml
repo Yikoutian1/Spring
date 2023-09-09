@@ -10,6 +10,7 @@
         <module name="spring-aop" />
         <module name="spring-ioc" />
         <module name="spring-reflect" />
+        <module name="spring-junit" />
         <module name="spring-my-ioc" />
       </profile>
     </annotationProcessing>
