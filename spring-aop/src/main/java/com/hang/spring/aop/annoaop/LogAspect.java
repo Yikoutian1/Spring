@@ -29,8 +29,9 @@ public class LogAspect {
         System.out.println("Logger-->前置通知，方法名：" + methodName + "，参数：" + args);
     }
 
-    // 后置  @After()
-    @After(value = "execution(* com.hang.spring.aop.annoaop.CalculatorImpl.*(..))")
+    // 后置  @After()   重用切面表达式
+//    @After(value = "com.hang.spring.aop.annoaop.LogAspect.pointCut()")
+    @After(value = "pointCut()")
     public void afterMethod(JoinPoint joinPoint) {
         // 增强方法的名称
         String methodName = joinPoint.getSignature().getName();
@@ -71,4 +72,8 @@ public class LogAspect {
         return result;
     }
 
+    // 重用切入点表达式
+    @Pointcut("execution(* com.hang.spring.aop.annoaop.CalculatorImpl.*(..))")
+    public void pointCut() {
+    }
 }
