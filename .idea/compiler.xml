@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="spring-ioc-yc" />
         <module name="spring-jdbc-tranx" />
         <module name="spring-ioc" />
         <module name="spring-reflect" />

@@ -16,6 +16,7 @@
         <module>spring-aop</module>
         <module>spring-junit</module>
         <module>spring-jdbc-tranx</module>
+        <module>spring-ioc-yc</module>
     </modules>
 
     <properties>
