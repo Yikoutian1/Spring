@@ -11,42 +11,42 @@
     <context:component-scan base-package="com.hang.spring.bmi"></context:component-scan>
 
     <!-- autowire="byType" Spring 会自动的从容器中， 根据类型查找， 查找类的属性对象所对应的 bean -->
-    <bean class="com.hang.spring.bmi.Container" autowire="byType" init-method="measure">
+    <bean class="com.hang.work.bmi.Container" autowire="byType" init-method="measure">
         <property name="list">
             <list>
-                <bean class="com.hang.spring.bmi.Person">
+                <bean class="com.hang.work.bmi.Person">
                     <property name="name" value="武松"></property>
                     <property name="height" value="1.8"></property>
                     <property name="weight" value="150"></property>
                 </bean>
                 <!-- p 命名空间设值  代码更简洁  等效于  property-->
-                <bean class="com.hang.spring.bmi.Person"
+                <bean class="com.hang.work.bmi.Person"
                       p:name="武松" p:height="1.8" p:weight="150"/>
-                <bean class="com.hang.spring.bmi.Person"
+                <bean class="com.hang.work.bmi.Person"
                       p:name="武松" p:height="1.8" p:weight="150"/>
-                <bean class="com.hang.spring.bmi.Person"
+                <bean class="com.hang.work.bmi.Person"
                       p:name="武松" p:height="1.8" p:weight="150"/>
-                <bean class="com.hang.spring.bmi.Person"
+                <bean class="com.hang.work.bmi.Person"
                       p:name="武松" p:height="1.8" p:weight="150"/>
-                <bean class="com.hang.spring.bmi.Person"
+                <bean class="com.hang.work.bmi.Person"
                       p:name="武松" p:height="1.8" p:weight="150"/>
-                <bean class="com.hang.spring.bmi.Person"
+                <bean class="com.hang.work.bmi.Person"
                       p:name="武松" p:height="1.8" p:weight="150"/>
-                <bean class="com.hang.spring.bmi.Person"
+                <bean class="com.hang.work.bmi.Person"
                       p:name="武松" p:height="1.8" p:weight="150"/>
-                <bean class="com.hang.spring.bmi.Person"
+                <bean class="com.hang.work.bmi.Person"
                       p:name="武松" p:height="1.8" p:weight="150"/>
-                <bean class="com.hang.spring.bmi.Person"
+                <bean class="com.hang.work.bmi.Person"
                       p:name="武松" p:height="1.8" p:weight="150"/>
-                <bean class="com.hang.spring.bmi.Person"
+                <bean class="com.hang.work.bmi.Person"
                       p:name="宋江" p:height="1.6" p:weight="250"/>
-                <bean class="com.hang.spring.bmi.Person"
+                <bean class="com.hang.work.bmi.Person"
                       p:name="燕青" p:height="1.9" p:weight="120"/>
             </list>
         </property>
     </bean>
 
-    <bean class="com.hang.spring.bmi.BmiFilter"/>
-    <bean class="com.hang.spring.bmi.BmiMeasurer"/>
+    <bean class="com.hang.work.bmi.BmiFilter"/>
+    <bean class="com.hang.work.bmi.BmiMeasurer"/>
 
 </beans>

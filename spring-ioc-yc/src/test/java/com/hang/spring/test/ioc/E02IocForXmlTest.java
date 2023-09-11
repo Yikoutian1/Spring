@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.hang.spring.bank.bean.Account;
+import com.hang.work.bank.bean.Account;
 /**
  * 配置Spring，让测试方法全部测试通过
  */

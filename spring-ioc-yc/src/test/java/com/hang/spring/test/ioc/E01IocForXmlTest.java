@@ -7,9 +7,9 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.hang.spring.bbs.bean.Board;
-import com.hang.spring.bbs.bean.Page;
-import com.hang.spring.bbs.bean.User;
+import com.hang.work.bbs.bean.Board;
+import com.hang.work.bbs.bean.Page;
+import com.hang.work.bbs.bean.User;
 
 /**
  * 配置Spring，让测试方法全部测试通过

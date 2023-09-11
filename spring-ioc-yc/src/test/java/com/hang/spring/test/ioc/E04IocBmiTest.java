@@ -10,8 +10,8 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.hang.spring.bmi.Container;
-import com.hang.spring.bmi.Person;
+import com.hang.work.bmi.Container;
+import com.hang.work.bmi.Person;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration("/bmi-beans.xml")

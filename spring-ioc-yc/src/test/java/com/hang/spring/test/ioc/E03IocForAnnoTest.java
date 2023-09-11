@@ -5,8 +5,8 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.hang.spring.bank.bean.Account;
-import com.hang.spring.bbs.bean.User;
+import com.hang.work.bank.bean.Account;
+import com.hang.work.bbs.bean.User;
 
 /**
  * 配置Spring，让测试方法全部测试通过
@@ -15,7 +15,7 @@ public class E03IocForAnnoTest {
 	Class<?> beanConfigClass;
 	{
 		try {
-			beanConfigClass = Class.forName("com.hang.spring.BeanConfig");
+			beanConfigClass = Class.forName("com.hang.work.BeanConfig");
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException("请定义注解配置类 (BeanConfig) !!!!",e);
 		}

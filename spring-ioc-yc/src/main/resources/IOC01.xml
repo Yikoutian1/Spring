@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="myUser" class="com.hang.spring.bbs.bean.User">
+	<bean id="myUser" class="com.hang.work.bbs.bean.User">
 		<property name="uname" value="武松"></property>
 		<property name="upass" value="abc123"></property>
 		<property name="head" value="20.gif"></property>
@@ -12,14 +12,14 @@
 	</bean>
 
 	<!-- primary="true" 设置主要bean -->
-	<bean class="com.hang.spring.bbs.bean.User" primary="true">
+	<bean class="com.hang.work.bbs.bean.User" primary="true">
 		<property name="uname" value="石秀"></property>
 		<property name="upass" value="XYZ890"></property>
 		<property name="head" value="345.gif"></property>
 		<property name="gender" value="0"></property>
 	</bean>
 
-	<bean id="page1" class="com.hang.spring.bbs.bean.Page">
+	<bean id="page1" class="com.hang.work.bbs.bean.Page">
 		<property name="total" value="100"></property>
 		<property name="rows">
 			<list>
@@ -31,11 +31,11 @@
 		</property>
 	</bean>
 
-	<bean id="page2" class="com.hang.spring.bbs.bean.Page">
+	<bean id="page2" class="com.hang.work.bbs.bean.Page">
 		<property name="total" value="200"></property>
 		<property name="rows">
 			<list>
-				<bean class="com.hang.spring.bbs.bean.User">
+				<bean class="com.hang.work.bbs.bean.User">
 					<property name="uname" value="华荣"></property>
 				</bean>
 				<map>
@@ -51,12 +51,12 @@
 		</property>
 	</bean>
 
-	<bean id="board" class="com.hang.spring.bbs.bean.Board">
+	<bean id="board" class="com.hang.work.bbs.bean.Board">
 		<constructor-arg name="boardid" value="100"/>
 		<constructor-arg name="boardname" value="jsp" />
 		<constructor-arg name="parentid" value="200"/>
 		<property name="parent">
-			<bean class="com.hang.spring.bbs.bean.Board">
+			<bean class="com.hang.work.bbs.bean.Board">
 				<constructor-arg name="boardid" value="300" />
 				<constructor-arg name="boardname" value="java" />
 				<constructor-arg name="parentid" value="0"/>
@@ -67,7 +67,7 @@
 				<null />
 				<null />
 				<null />
-				<bean class="com.hang.spring.bbs.bean.Topic">
+				<bean class="com.hang.work.bbs.bean.Topic">
 					<property name="uid">
 						<value type="java.lang.Integer">400</value>
 					</property>
