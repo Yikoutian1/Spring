@@ -1,6 +1,9 @@
 package com.hang.spring.bean;
 
+import com.hang.spring.anotation.autowired;
+import com.hang.spring.anotation.qualifier;
 import com.hang.spring.config.IocConfig;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -14,6 +17,7 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLDecoder;
@@ -27,7 +31,7 @@ import java.util.List;
  * @DATE 2023/9/11 011 18:54
  * @Version 1.0
  */
-
+@Slf4j
 public class AnnotationConfigApplicationContext {
     private Class configClass;
     private Object config;
@@ -48,6 +52,69 @@ public class AnnotationConfigApplicationContext {
 
         // 根据字节码文件创建对象
         createBeanByClassFile(componentFile);
+
+        // 根据Autowired 自动装载
+        createBeanByAutowired(componentFile);
+
+
+    }
+
+    private void createBeanByAutowired(List<File> componentFile) throws Exception {
+        // 获取根目录
+        URL url = getClass().getClassLoader().getResource("");
+        String filePath = url.toString().substring("file:/".length());
+        filePath = URLDecoder.decode(filePath, "utf-8");
+        File rootFile = new File(filePath);
+
+        // 变量字节码文件
+        for (File component : componentFile) {
+            String classpath = component.getAbsolutePath().substring(rootFile.getAbsolutePath().length());
+            classpath = classpath.replace(".class", "")
+                    .replaceAll("\\\\", ".")
+                    .substring(1); // 去掉第一个 . 号
+            Class<?> aClass = Class.forName(classpath);
+            Field[] fields = aClass.getDeclaredFields();
+            // 创建bean
+            BeanInfo bi = new BeanInfo();
+            // 拿到属性
+            for (Field field : fields) {
+                // 强制访问
+                field.setAccessible(true);
+                // 如果有autowired注解
+                if (field.getAnnotation(autowired.class) != null) {
+                    String name = null;
+                    // 如果有 qualifier 注解
+                    if (field.getAnnotation(qualifier.class) != null) {
+                        // 属性类型
+                        Class<?> type = field.getType();
+                        name = field.getAnnotation(qualifier.class).value();
+                        // 如果不包含该key
+                        if (!IOC.containsKey(name)) {
+                            bi.bean = type.getConstructor().newInstance();
+//                        System.out.println("name = " + name);
+                            IOC.put(name, bi);
+                        }
+                    } else {
+                        // 属性类型
+                        Class<?> type = field.getType();
+                        // autowired 根据类型注入 （根据类型：User->user）
+                        // 获取类对象名
+                        String simpleName = type.getSimpleName();
+                        // 首字母小写
+                        name = simpleName.substring(0, 1)
+                                .toLowerCase() + simpleName.substring(1);
+                        // System.out.println("IOC.containsKey(type) = " + IOC.containsKey(name));
+                        // 如果不包含该key
+                        if (!IOC.containsKey(name)) {
+                            bi.bean = type.getConstructor().newInstance();
+//                        System.out.println("name = " + name);
+                            IOC.put(name, bi);
+                        }
+                        // 否则包含就不需要处理了
+                    }
+                }
+            }
+        }
     }
 
     private void createBeanByClassFile(List<File> componentFiles) throws Exception {
@@ -68,7 +135,7 @@ public class AnnotationConfigApplicationContext {
             if (aClass.getAnnotation(Service.class) != null
                     || aClass.getAnnotation(Repository.class) != null
                     || aClass.getAnnotation(Controller.class) != null
-                    || aClass.getAnnotation(Component.class) != null){
+                    || aClass.getAnnotation(Component.class) != null) {
                 // 创建bean
                 BeanInfo bi = new BeanInfo();
                 // 获取name
@@ -92,15 +159,14 @@ public class AnnotationConfigApplicationContext {
                     if (component.value().length() > 0) {
                         IOC.put(component.value(), bi);
                     }
-                }else {
+                } else {
                     // 类名
                     String simpleName = aClass.getSimpleName();
                     // 首字母小写
-                    String name = simpleName.substring(0,1)
+                    String name = simpleName.substring(0, 1)
                             .toLowerCase() + simpleName.substring(1);
-                    IOC.put(name,bi);
+                    IOC.put(name, bi);
                 }
-
             }
         }
     }
