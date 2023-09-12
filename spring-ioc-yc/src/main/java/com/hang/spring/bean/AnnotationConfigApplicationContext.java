@@ -94,7 +94,9 @@ public class AnnotationConfigApplicationContext {
 //                        System.out.println("name = " + name);
                             IOC.put(name, bi);
                         }
-                    } else {
+                    }
+                    // 没有 指定qualifier注解
+                    else {
                         // 属性类型
                         Class<?> type = field.getType();
                         // autowired 根据类型注入 （根据类型：User->user）
