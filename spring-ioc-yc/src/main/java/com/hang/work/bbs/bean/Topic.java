@@ -9,6 +9,10 @@ public class Topic {
 	private Integer topicid;
 	private String title;
 	private String content;
+
+	public Topic() {
+	}
+
 	private Timestamp publishtime;
 	private Timestamp modifytime;
 	private Integer uid;

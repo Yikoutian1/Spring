@@ -25,6 +25,10 @@ public class Board {
 	 * 板块所属主题列表
 	 */
 	private List<Topic> topicList;
+
+	public Board() {
+	}
+
 	/**
 	 * 构造方法注入
 	 * @param boardid

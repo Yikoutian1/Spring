@@ -11,6 +11,9 @@ import java.util.List;
 @Component
 public class User {
 
+	public User() {
+	}
+
 	/**
 	 * 用户ID
 	 */

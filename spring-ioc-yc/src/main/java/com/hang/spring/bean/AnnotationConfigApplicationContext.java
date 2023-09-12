@@ -32,14 +32,6 @@ public class AnnotationConfigApplicationContext {
     private Class configClass;
     private Object config;
     private Map<String, BeanInfo> IOC = new HashMap<>();
-    static Map<Class<?>, Class<?>> map = new HashMap<>();
-
-    static {
-        map.put(Service.class, Service.class);
-        map.put(Repository.class, Repository.class);
-        map.put(Controller.class, Controller.class);
-        map.put(Component.class, Component.class);
-    }
 
     public AnnotationConfigApplicationContext(Class<?> clazz) throws Exception {
         this.configClass = clazz;
@@ -73,22 +65,42 @@ public class AnnotationConfigApplicationContext {
                     .substring(1); // 去掉第一个 . 号
             Class<?> aClass = Class.forName(classpath);
             // 判断是否是组件
-            Class<?> anno = null;
-            for (Annotation annotation : aClass.getAnnotations()) {
-                System.out.println(annotation.annotationType());
-                if (annotation != null) {
-                    anno = map.get(annotation.annotationType());
+            if (aClass.getAnnotation(Service.class) != null
+                    || aClass.getAnnotation(Repository.class) != null
+                    || aClass.getAnnotation(Controller.class) != null
+                    || aClass.getAnnotation(Component.class) != null){
+                // 创建bean
+                BeanInfo bi = new BeanInfo();
+                // 获取name
+                Service service = aClass.getAnnotation(Service.class);
+                Repository repository = aClass.getAnnotation(Repository.class);
+                Controller controller = aClass.getAnnotation(Controller.class);
+                Component component = aClass.getAnnotation(Component.class);
+                if (service != null) {
+                    if (service.value().length() > 0) {
+                        IOC.put(service.value(), bi);
+                    }
+                } else if (repository != null) {
+                    if (repository.value().length() > 0) {
+                        IOC.put(repository.value(), bi);
+                    }
+                } else if (controller != null) {
+                    if (controller.value().length() > 0) {
+                        IOC.put(controller.value(), bi);
+                    }
+                } else if (component != null) {
+                    if (component.value().length() > 0) {
+                        IOC.put(component.value(), bi);
+                    }
+                }else {
+                    // 类名
+                    String simpleName = aClass.getSimpleName();
+                    // 首字母小写
+                    String name = simpleName.substring(0,1)
+                            .toLowerCase() + simpleName.substring(1);
+                    IOC.put(name,bi);
                 }
-            }
-//            Object bean = aClass.newInstance();
-            BeanInfo bean = buildBeanInfo(aClass);
-            // 如果数据库没有这个注解
-            if (Objects.isNull(anno)) {
-                String simpleName = aClass.getSimpleName();
-                String name = simpleName.substring(0, 1).toLowerCase() + simpleName.substring(1);
-                IOC.put(name, bean);
-            } else {
-                System.out.println(anno);
+
             }
         }
     }
@@ -133,9 +145,12 @@ public class AnnotationConfigApplicationContext {
         boolean isPrimay = aClass.getAnnotation(Primary.class) != null;
         BeanInfo beanInfo = new BeanInfo();
         beanInfo.isPrimary = isPrimay;
-        beanInfo.bean = aClass.newInstance();
+        if (!aClass.isInterface()) {
+            beanInfo.bean = aClass.newInstance();
+            return beanInfo;
+        }
         // TODO 扩展其他属性
-        return beanInfo;
+        return null;
     }
 
     // 包扫描 => 扫描组件
@@ -197,8 +212,8 @@ public class AnnotationConfigApplicationContext {
                 for (String name : names) {
                     BeanInfo bi = new BeanInfo();
                     bi.bean = invoke;
-                    bi.isPrimary = declaredMethod.getAnnotation(Primary.class)!=null;
-                    IOC.put(name,bi);
+                    bi.isPrimary = declaredMethod.getAnnotation(Primary.class) != null;
+                    IOC.put(name, bi);
                 }
             }
 
@@ -209,8 +224,9 @@ public class AnnotationConfigApplicationContext {
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(IocConfig.class);
         context.IOC.forEach((name, bean) -> {
-            System.out.printf("%s %s \n", name, bean);
+            System.out.printf("IOC beans:%s %s \n", name, bean);
         });
+//        System.out.println("context.IOC = " + context.IOC);
     }
 
     class BeanInfo {

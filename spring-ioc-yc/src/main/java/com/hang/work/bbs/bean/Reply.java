@@ -8,6 +8,10 @@ public class Reply {
 	private String title;
 	private String content;
 	private Timestamp publishtime;
+
+	public Reply() {
+	}
+
 	private Timestamp modifytime;
 	private Integer uid;
 	private Integer topicid;

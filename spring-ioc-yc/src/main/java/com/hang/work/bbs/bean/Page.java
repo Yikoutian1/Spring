@@ -10,7 +10,9 @@ import java.util.List;
  *
  */
 public class Page {
-	
+	public Page() {
+	}
+
 	private long total;   	// 总行数
 	private List<Object> rows;  	// 查询的数据
 	public long getTotal() {
