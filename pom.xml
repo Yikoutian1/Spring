@@ -17,6 +17,7 @@
         <module>spring-junit</module>
         <module>spring-jdbc-tranx</module>
         <module>spring-ioc-yc</module>
+        <module>spring-aop-yc</module>
     </modules>
 
     <properties>
@@ -95,6 +96,11 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.28</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.19</version>
         </dependency>
     </dependencies>
 </project>

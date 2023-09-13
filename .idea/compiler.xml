@@ -15,6 +15,7 @@
         <module name="spring-ioc-annotation" />
         <module name="spring-aop" />
         <module name="spring-my-ioc" />
+        <module name="spring-aop-yc" />
       </profile>
     </annotationProcessing>
   </component>
