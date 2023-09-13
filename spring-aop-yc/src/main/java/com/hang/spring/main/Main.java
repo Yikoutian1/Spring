@@ -21,6 +21,6 @@ public class Main {
                 new AnnotationConfigApplicationContext(SpringAopConfig.class);
         FunctionAspect bean = context.getBean(FunctionAspect.class);
         bean.add(1,2);
-        System.out.println(bean);
+//        System.out.println(bean);
     }
 }

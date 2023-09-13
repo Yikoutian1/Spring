@@ -22,7 +22,7 @@ public class MyAspect {
     }
 
     // 前置增强
-//    @Before(value = "pointCut()")
+    @Before(value = "pointCut()")
     public void before(JoinPoint joinPoint) {
         Signature signature = joinPoint.getSignature();// 获取签名
         System.out.println("signature = " + signature);
@@ -31,19 +31,19 @@ public class MyAspect {
     }
 
     // 后置增强
-//    @After(value = "pointCut()")
+    @After(value = "pointCut()")
     public void after() {
         System.out.println("after");
     }
 
     // 返回前增强
-//    @AfterReturning(value = "pointCut()", returning = "ret")
+    @AfterReturning(value = "pointCut()", returning = "ret")
     public void afterReturning(JoinPoint joinPoint, Object ret) {
         System.out.println(ret + " after return");
     }
 
     // 异常增强
-//    @AfterThrowing(value = "pointCut()", throwing = "throwss")
+    @AfterThrowing(value = "pointCut()", throwing = "throwss")
     public void afterThrowing(JoinPoint joinPoint, Throwable throwss) {
         System.out.println("throwss: " + throwss);
     }
@@ -60,15 +60,16 @@ public class MyAspect {
     public Object around(ProceedingJoinPoint proceedingJoinPoint) {
         Object ret = null;
         try {
-            before(proceedingJoinPoint);
-
+//            before(proceedingJoinPoint);
+            System.out.println("===around===");
+            long time = System.currentTimeMillis();
             ret = proceedingJoinPoint.proceed();
-
-            afterReturning(proceedingJoinPoint,ret);
+            System.out.printf("共耗时: %d", System.currentTimeMillis() - time);
+//            afterReturning(proceedingJoinPoint,ret);
         } catch (Throwable e) {
-            afterThrowing(proceedingJoinPoint, e);
+//            afterThrowing(proceedingJoinPoint, e);
         } finally {
-            after();
+//            after();
         }
         return ret;
     }
