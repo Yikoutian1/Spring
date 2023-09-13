@@ -26,6 +26,18 @@ public class testException {
         //1. 此时这里会报错   这两个是兄弟关系
         subClass.test();
         subClass2.test();
-    }
 
+        // ===== //
+        Parent p1 = new B();
+        Parent p2 = new SubClass();
+//        p2 = p1; // 运行报错 => p1,p2是兄弟关系
+    }
+}
+
+class B implements Parent {
+
+    @Override
+    public void test() {
+
+    }
 }
