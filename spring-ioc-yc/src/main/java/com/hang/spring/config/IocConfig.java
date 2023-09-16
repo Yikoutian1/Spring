@@ -3,7 +3,6 @@ package com.hang.spring.config;
 
 import com.hang.work.bbs.bean.User;
 import org.springframework.context.annotation.*;
-import org.springframework.stereotype.Repository;
 
 @Configuration //配置类==》beans.xml
 @ComponentScan("com.hang.work.bbs")

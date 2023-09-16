@@ -35,7 +35,8 @@ import java.util.List;
 public class AnnotationConfigApplicationContext {
     private Class configClass;
     private Object config;
-    private Map<String, BeanInfo> IOC = new HashMap<>();
+    // protected 子类可以访问
+    protected Map<String, BeanInfo> IOC = new HashMap<>();
 
     public AnnotationConfigApplicationContext(Class<?> clazz) throws Exception {
         this.configClass = clazz;
