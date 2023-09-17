@@ -3,6 +3,103 @@
   <component name="EasyCodeTableSetting">
     <option name="tableInfoMap">
       <map>
+        <entry key="test.bank_account">
+          <value>
+            <TableInfoDTO>
+              <option name="comment" value="银行-账号表-2000000000" />
+              <option name="fullColumn">
+                <list>
+                  <ColumnInfoDTO>
+                    <option name="comment" value="银行卡号" />
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="id" />
+                    <option name="type" value="java.lang.Integer" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="comment" value="密码" />
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="password" />
+                    <option name="type" value="java.lang.String" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="comment" value="账户余额" />
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="balance" />
+                    <option name="type" value="java.lang.Double" />
+                  </ColumnInfoDTO>
+                </list>
+              </option>
+              <option name="name" value="BankAccount" />
+              <option name="preName" value="" />
+              <option name="saveModelName" value="spring-aop-yc" />
+              <option name="savePackageName" value="com.hang,spring" />
+              <option name="savePath" value="./spring-aop-yc/src/main/java/com/hang,spring" />
+              <option name="templateGroupName" value="MybatisPlus" />
+            </TableInfoDTO>
+          </value>
+        </entry>
+        <entry key="test.bank_oprecord">
+          <value>
+            <TableInfoDTO>
+              <option name="comment" value="银行-操作流水表-2" />
+              <option name="fullColumn">
+                <list>
+                  <ColumnInfoDTO>
+                    <option name="comment" value="流水号" />
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="id" />
+                    <option name="type" value="java.lang.Integer" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="comment" value="卡号" />
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="aid" />
+                    <option name="type" value="java.lang.Integer" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="comment" value="操作金额，正数存款，负数取款" />
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="opmoney" />
+                    <option name="type" value="java.lang.Double" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="comment" value="交易费" />
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="charge" />
+                    <option name="type" value="java.lang.Double" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="comment" value="操作时间, 默认系统当前时间" />
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="optime" />
+                    <option name="type" value="java.util.Date" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="comment" value="备注: 存款,取款,转账,缴费" />
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="remark" />
+                    <option name="type" value="java.lang.String" />
+                  </ColumnInfoDTO>
+                </list>
+              </option>
+              <option name="name" value="BankOprecord" />
+              <option name="preName" value="" />
+              <option name="saveModelName" value="spring-jdbc-tranx" />
+              <option name="savePackageName" value="com.hang.spring" />
+              <option name="savePath" value="./spring-jdbc-tranx/src/main/java/com/hang/spring" />
+              <option name="templateGroupName" value="MybatisPlus" />
+            </TableInfoDTO>
+          </value>
+        </entry>
         <entry key="test.spring">
           <value>
             <TableInfoDTO>

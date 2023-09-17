@@ -315,6 +315,10 @@ public class AopApplicationContext extends AnnotationConfigApplicationContext {
                             return null;
                         }
                     });
+                    // 生成代理对象
+                    Object proxyBean = enhancer.create();
+                    // 用代理替换原有的bean
+                    beanInfo.bean = proxyBean;
                 }
             }
         }

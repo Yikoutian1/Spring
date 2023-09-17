@@ -1,4 +1,4 @@
-package com.hang.spring.jdbc;
+package com.hang.spring.entity;
 
 
 

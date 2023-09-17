@@ -1,14 +1,13 @@
 package com.hang.spring.jdbc;
 
+import com.hang.spring.entity.Spring;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @ClassName JDBCTemplateTest
@@ -45,9 +44,11 @@ public class JDBCTemplateTest {
 //                1 // id
 //        );
         // 返回list
-        List<Spring> query = jdbcTemplate.query(select, new BeanPropertyRowMapper<>(Spring.class));
+        List<Spring> query = jdbcTemplate.query(select,
+                new BeanPropertyRowMapper<>(Spring.class));
         for (Spring spring : query) {
             System.out.println("spring = " + spring);
         }
     }
+
 }
