@@ -1,7 +1,5 @@
 package com.hang.spring.dao;
 
-import com.hang.spring.dto.AccountDto;
-import com.hang.spring.entity.BankAccount;
 import com.hang.spring.entity.BankOprecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;

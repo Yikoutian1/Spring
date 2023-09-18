@@ -1,16 +1,13 @@
 package com.hang.spring.jdbc;
 
 import com.hang.spring.config.JdbcConfig;
-import com.hang.spring.service.BankService;
 import com.hang.spring.service.BankServiceImpl;
 import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
