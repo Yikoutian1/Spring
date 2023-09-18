@@ -21,4 +21,12 @@ public class TestBook {
     public void testBuyBook() {
         bookController.buyBook(1, 1);
     }
+
+    @Test
+    public void testBuyBooks() {
+        Integer[] ids = new Integer[]{
+                1, 2
+        };
+        bookController.buyBooks(ids, 1);
+    }
 }

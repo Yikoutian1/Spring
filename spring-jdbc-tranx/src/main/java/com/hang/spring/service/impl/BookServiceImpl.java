@@ -37,6 +37,14 @@ public class BookServiceImpl implements BookService {
      *  5.Isolation.SERIALIZABLE: 序列化            xxx
      * }
      * 5. 传播行为: 事务方法之间调用,事务如何使用(共有七种)
+     * {
+     *  1. Propagation.REQUIRED
+     *      默认情况,当线程用已经开启的事物,则加入事物
+     *  2. Propagation.REQUIRES_NEW
+     *      不管当前线程是否有已经开启的事务,都会开启新事物,
+     *          例如第二次购买余额不足,则第二个回滚 第一个正常执行
+     *  3.
+     * }
      */
     // @Transactional(readOnly = true) // 只读
     // Connection is read-only. Queries leading to data modification are not allowed
@@ -45,7 +53,7 @@ public class BookServiceImpl implements BookService {
     // @Transactional(noRollbackFor = ArithmeticException.class)// 不回滚
     // 出现ArithmeticException异常(1/0) 不进行回滚
     // @Transactional(isolation = Isolation.DEFAULT) // 隔离级别
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void buyBook(Integer bookId, Integer userId) {
         // 模拟超时
 //        try {

@@ -22,6 +22,9 @@ public class CheckoutServiceImpl implements CheckoutService {
     @Override
     @Transactional()  // 此时bookServiceImpl也有事物
     public void checkout(Integer[] bookIds, Integer userId) {
-
+        for (Integer bookId : bookIds) {
+            // 调用service中的方法
+            bookService.buyBook(bookId,userId);
+        }
     }
 }

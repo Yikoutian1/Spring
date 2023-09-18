@@ -1,6 +1,7 @@
 package com.hang.spring.controller;
 
 import com.hang.spring.service.BookService;
+import com.hang.spring.service.CheckoutService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -19,6 +20,13 @@ public class BookController {
     // 书的id:bookId    用户id: userId
     public void buyBook(Integer bookId, Integer userId) {
         // 调用service方法进行调用
-        bookService.buyBook(bookId,userId);
+        bookService.buyBook(bookId, userId);
+    }
+
+    @Autowired
+    private CheckoutService checkoutService;
+
+    public void buyBooks(Integer[] bookId, Integer userId) {
+        checkoutService.checkout(bookId, userId);
     }
 }
