@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link href="res/style.css" rel="stylesheet">
+    <script src="https://unpkg.com/vue@2.7.14/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<div id="app" class="flex">
+    <
+    <main>
+        <header class="flex">
+            <div>
+                <small>ycinfo bank</small>
+            </div>
+            <div id="contact">
+                <div>客服电话: 8888</div>
+                <div>网址: www.bank.com</div>
+            </div>
+        </header>
+        <div class="msg">
+            倒计时: <h2>32</h2> 秒
+        </div>
+        <div id="pane" class="flex">
+            <div class="btns">
+                <a class="hidden">占位</a>
+                <a class="hidden">占位</a>
+                <a class="hidden">占位</a>
+            </div>
+            <div id="info">
+                <h2>请输入账号和密码</h2>
+                <form action="main.html">
+                    <input placeholder="账号"><br>
+                    <input placeholder="密码" type="password">
+                </form>
+            </div>
+            <div class="btns">
+                <a class="hidden">占位</a>
+                <a class="hidden">占位</a>
+                <a href="main.html" @click.prevent="login" class="right">确定</a>
+                <a class="right">退出</a>
+            </div>
+        </div>
+    </main>
+    >
+
+</div>
+</body>
+<script>
+    new Vue({
+        el: "#app",
+        data() {
+            return {
+                username: '',
+                password: ''
+            }
+        },
+        methods: {
+            login() {
+                axios.get("/login",{
+                    pa
+                })
+            }
+        }
+    })
+</script>
+</html>

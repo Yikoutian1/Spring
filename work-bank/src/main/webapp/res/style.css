@@ -1,0 +1,155 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    color: #fff;
+}
+
+html, body, #app {
+    margin: 0px auto;
+    height: 100%;
+    overflow: hidden;
+    justify-content: center
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main {
+    background-image: url(bg.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    width: 800px;
+    height: 500px;
+}
+
+header {
+    padding: 20px;
+}
+
+#contact {
+    text-align: right;
+}
+
+header h3 {
+    font-family: 楷体;
+}
+
+header h3 {
+    letter-spacing: 3px;
+}
+
+.msg {
+    text-align: right;
+    padding: 0px 20px;
+    color: yellow;
+    font-weight: bold;
+}
+
+.msg h2 {
+    display: inline;
+    color: yellow;
+}
+
+#pane {
+    align-items: start;
+    margin: 20px 0px;
+}
+
+.btns {
+    padding-top: 20px;
+}
+
+.btns a {
+    cursor: pointer;
+    opacity: 0.95;
+}
+
+.btns a:hover {
+    opacity: 1;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btns a {
+    text-align: center;
+    width: 70px;
+    display: block;
+    margin: 20px 0px 40px;
+    padding: 10px 50px;
+    color: blue;
+    background-image: url("bg-btn.png");
+    background-size: auto 100%;
+    border: 0px;
+}
+
+.btns a.left {
+    border-radius: 0px 15px 15px 0px;
+}
+
+.btns a.right {
+    border-radius: 15px 0px 0px 15px;
+}
+
+.btns a.hidden {
+    visibility: hidden;
+}
+
+#info {
+    flex: auto;
+    text-align: center;
+}
+
+#info h2 {
+    font-weight: normal;
+}
+
+#info > form {
+    padding: 20px;
+    line-height: 50px;
+}
+
+#info * {
+    vertical-align: middle;
+}
+
+#info input, #info select {
+    padding: 5px 10px;
+    color: #333;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    text-align: center;
+    width: 250px;
+    height: 20px;
+    box-sizing: content-box;
+}
+
+option {
+    color: #333;
+}
+
+.center {
+    text-align: center;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+#info > form > table {
+    line-height: normal;
+    width: 100%;
+}
+
+table th:nth-child(3), table th:nth-child(4), table td:nth-child(3), table td:nth-child(4), table th:nth-child(5), table td:nth-child(5) {
+    text-align: right;
+}

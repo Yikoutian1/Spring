@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>缴费</title>
+    <link href="res/style.css" rel="stylesheet">
+    <script src="https://unpkg.com/vue@2.7.14/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<div id="app" class="flex">
+    <<main>
+        <header class="flex">
+            <div>
+                <small>ycinfo bank</small>
+            </div>
+            <div id="contact">
+                <div>客服电话: 8888</div>
+                <div>网址: www.bank.com</div>
+            </div>
+        </header>
+        <div class="msg">
+            倒计时: <h2>32</h2> 秒
+        </div>
+        <div id="pane" class="flex">
+            <div class="btns">
+                <a class="hidden">占位</a>
+                <a class="hidden">占位</a>
+                <a class="hidden">占位</a>
+            </div>
+            <div id="info">
+                <h2>缴费服务</h2>
+                <form action="main.html">
+                    <select placeholder="缴费类型">
+                        <option>水费</option>
+                        <option>电费</option>
+                        <option>电视费</option>
+                        <option>宽带费</option>
+                        <option>煤气费</option>
+                    </select>
+                    <input placeholder="缴费账号" type="number">
+                    <input placeholder="缴费金额" type="number">
+                </form>
+            </div>
+            <div class="btns">
+                <a class="hidden">占位</a>
+                <a class="hidden">占位</a>
+                <a href="main.html" class="right">确定</a>
+                <a href="main.html" class="right">返回</a>
+            </div>
+        </div>
+    </main>>
+</div>
+</body>
+</html>

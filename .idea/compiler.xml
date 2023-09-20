@@ -12,11 +12,16 @@
         <module name="spring-ioc" />
         <module name="spring-reflect" />
         <module name="spring-junit" />
+        <module name="bank-work" />
         <module name="spring-ioc-annotation" />
         <module name="spring-aop" />
         <module name="spring-my-ioc" />
         <module name="spring-aop-yc" />
+        <module name="work-bank" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="bank-work" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

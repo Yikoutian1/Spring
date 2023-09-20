@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>银行</title>
+    <link href="res/style.css" rel="stylesheet">
+    <script src="https://unpkg.com/vue@2.7.14/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<div id="app" class="flex">
+    <main>
+        <header class="flex">
+            <div>
+                <small>ycinfo bank</small>
+            </div>
+            <div id="contact">
+                <div>客服电话: 8888</div>
+                <div>网址: www.bank.com</div>
+            </div>
+        </header>
+        <div class="msg">
+            倒计时: <h2>32</h2> 秒
+        </div>
+        <div id="pane" class="flex">
+            <div class="btns">
+                <a href="query.html" class="left">查询</a>
+                <a href="transfer.html" class="left">转账</a>
+                <a href="setpwd.html" class="left">改密</a>
+            </div>
+            <div id="info">
+                <h2>请选择服务</h2>
+            </div>
+            <div class="btns">
+                <a href="withdraw.html" class="right">取款</a>
+                <a href="deposit.html" class="right">存款</a>
+                <a href="pay.html" class="right">缴费</a>
+                <a href="index.html" class="right">退出</a>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>
