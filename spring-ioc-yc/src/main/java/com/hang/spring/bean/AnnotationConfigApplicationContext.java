@@ -31,7 +31,6 @@ import java.util.List;
  * @DATE 2023/9/11 011 18:54
  * @Version 1.0
  */
-@Slf4j
 public class AnnotationConfigApplicationContext {
     private Class configClass;
     private Object config;

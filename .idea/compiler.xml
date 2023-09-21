@@ -8,20 +8,24 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring-ioc-yc" />
-        <module name="spring-jdbc-tranx" />
+        <module name="spring-mvc" />
         <module name="spring-ioc" />
         <module name="spring-reflect" />
-        <module name="spring-junit" />
-        <module name="bank-work" />
         <module name="spring-ioc-annotation" />
-        <module name="spring-aop" />
-        <module name="spring-my-ioc" />
         <module name="spring-aop-yc" />
         <module name="work-bank" />
+        <module name="spring-jdbc-tranx" />
+        <module name="spring-junit" />
+        <module name="bank-work" />
+        <module name="spring-aop" />
+        <module name="spring-my-ioc" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="bank-work" target="1.8" />
+      <module name="mvc-bank" target="1.8" />
+      <module name="spring-mvc (1)" target="1.8" />
+      <module name="spring-mvc (2)" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

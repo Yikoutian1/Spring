@@ -19,6 +19,7 @@
         <module>spring-ioc-yc</module>
         <module>spring-aop-yc</module>
         <module>work-bank</module>
+        <module>spring-mvc</module>
     </modules>
 
     <properties>
